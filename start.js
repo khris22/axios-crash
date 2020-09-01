@@ -1,6 +1,24 @@
 // GET REQUEST
 function getTodos() {
   console.log('GET Request');
+  // axios({
+  //   method: 'get',
+  //   url: 'https://jsonplaceholder.typicode.com/todos',
+  //   // can be able to pass in any params here
+  //   // limit data:
+  //   params: {
+  //     _limit: 5,
+  //   },
+  // })
+  //   .then((res) => showOutput(res))
+  //   // error handling
+  //   .catch((err) => console.log(err));
+
+  // Refactor:
+  // axios.get('https://jsonplaceholder.typicode.com/todos', {params: {_limit = 5}})
+  axios('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    .then((res) => showOutput(res))
+    .catch((err) => console.log(err));
 }
 
 // POST REQUEST

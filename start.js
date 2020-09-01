@@ -24,16 +24,63 @@ function getTodos() {
 // POST REQUEST
 function addTodo() {
   console.log('POST Request');
+  // axios({
+  //   method: 'POST',
+  //   url: 'https://jsonplaceholder.typicode.com/todos',
+  //   data: {
+  //     title: 'Khris To Dos',
+  //     completed: false,
+  //   },
+  // })
+  //   .then((res) => showOutput(res))
+  //   .catch((err) => console.log(err));
+
+  // Refactor:
+  axios
+    .post('https://jsonplaceholder.typicode.com/todos', {
+      title: 'Todos for today',
+      completed: false,
+    })
+    .then((res) => showOutput(res))
+    .catch((err) => console.log(err));
 }
 
 // PUT/PATCH REQUEST
+// put - edits/changes the whole object
+// patch - edits only sepcific parts of the data
 function updateTodo() {
   console.log('PUT/PATCH Request');
+
+  // axios({
+  //   // method: 'PUT',
+  //   method: 'PATCH',
+  //   // needs to have an id ; make it dynamic ${}
+  //   url: 'https://jsonplaceholder.typicode.com/todos/1',
+  //   data: {
+  //     title: 'Updated To do - Khris',
+  //     completed: true,
+  //   },
+  // })
+  //   .then((res) => showOutput(res))
+  //   .catch((err) => console.log(err));
+
+  axios
+    // .put('https://jsonplaceholder.typicode.com/todos/1', {
+    .patch('https://jsonplaceholder.typicode.com/todos/1', {
+      title: 'NEW UPDATE',
+      completed: false,
+    })
+    .then((res) => showOutput(res))
+    .catch((err) => console.log(err));
 }
 
 // DELETE REQUEST
 function removeTodo() {
   console.log('DELETE Request');
+  axios
+    .delete('https://jsonplaceholder.typicode.com/todos/1')
+    .then((res) => showOutput(res))
+    .catch((err) => console.log(err));
 }
 
 // SIMULTANEOUS DATA
